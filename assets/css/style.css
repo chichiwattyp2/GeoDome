@@ -129,6 +129,80 @@ textarea {
 ::-webkit-input-placeholder {
     font-size: 16px;
 }
+.radio-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 3em;
+  margin: 1.25em 0; /* TODO: merge margin attributes */
+  margin-bottom: 0.8em;
+  cursor: pointer;
+  font-size: 1em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-container .radio-title {
+  font-weight: bold;
+}
+
+.radio-container span {
+  margin-top: 1em;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+  background: #eee;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .checkmark {
+  background: #ccc;
+}
+
+/* When the radio button is checked, add a black background */
+.radio-container input:checked ~ .checkmark {
+  background: black;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: relative;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .checkmark:after {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: white;
+}
 
 /* LAYOUT
 ================================================== */
